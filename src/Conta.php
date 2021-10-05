@@ -14,7 +14,11 @@ class Conta
         $this->validaNome($nomeTitular);
         $this->saldo = 0;
 
-        Conta::$numeroDeContas++;
+        Self::$numeroDeContas++;
+    }
+
+    public function __destruct(){
+        Self::$numeroDeContas--;
     }
 
     public function sacar(float $valorSacar): void
@@ -78,6 +82,6 @@ class Conta
 
     public static function recuperarNumeroDeContas(): int
     {
-        return Conta::$numeroDeContas;
+        return Self::$numeroDeContas;
     }
 }
