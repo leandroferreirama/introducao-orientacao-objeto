@@ -6,7 +6,11 @@ var_dump($primeiraConta);
 $primeiraConta->depositar(500);
 $primeiraConta->sacar(300);
 
-$segundaConta = new Conta('123.456.789-10', 'Lea');
+$segundaConta = new Conta('123.456.789-10', 'Leandro');
 echo '
 
-Saldo Final: '.$primeiraConta->getSaldo();
+Saldo Final: '.$primeiraConta->getSaldo() . PHP_EOL;
+echo '
+
+';
+echo Conta::$numeroDeContas;
