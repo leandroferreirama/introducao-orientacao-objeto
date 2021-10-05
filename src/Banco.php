@@ -13,4 +13,4 @@ Saldo Final: '.$primeiraConta->getSaldo() . PHP_EOL;
 echo '
 
 ';
-echo Conta::$numeroDeContas;
+echo Conta::recuperarNumeroDeContas();

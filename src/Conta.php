@@ -5,7 +5,7 @@ class Conta
     private string $cpfTitular;
     private string $nomeTitular;
     private float $saldo;
-    public static int $numeroDeContas = 0;
+    private static int $numeroDeContas = 0;
 
     public function __construct(string $cpfTitular, string $nomeTitular)
     {
@@ -74,5 +74,10 @@ class Conta
         if(strlen($nome) < 5){
             echo "Nome precisa ter pelo menos 5 caracteres";
         }
+    }
+
+    public static function recuperarNumeroDeContas(): int
+    {
+        return Conta::$numeroDeContas;
     }
 }
