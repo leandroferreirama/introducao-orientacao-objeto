@@ -9,26 +9,26 @@ class Conta
     public function sacar(float $valorSacar){
         if($valorSacar > $this->saldo){
             echo 'Saldo indisponível';
-        } else {
-            $this->saldo -= $valorSacar;
+            return;
         }
+        $this->saldo -= $valorSacar;
     }
 
     public function depositar(float $valorDepositar){
         if($this->saldo < 0){
             echo 'Não pode ser o valor zero';
-        } else {
-            $this->saldo += $valorDepositar;
+            return;
         }
+        $this->saldo += $valorDepositar;
     }
 
     public function transferir(float $valorATransferir, Conta $contaDestino): void
     {
         if($valorATransferir > $this->saldo){
             echo 'Saldo indisponível';
-        } else {
-            $this->sacar($valorATransferir);
-            $contaDestino->depositar($valorATransferir);
+            return;
         }
+        $this->sacar($valorATransferir);
+        $contaDestino->depositar($valorATransferir);
     }
 }
