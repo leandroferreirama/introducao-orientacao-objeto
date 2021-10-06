@@ -1,6 +1,6 @@
 <?php
 
-use Alura\Banco\Modelo\Conta\{Conta,Titular,ContaPoupanca};
+use Alura\Banco\Modelo\Conta\{Conta,Titular,ContaPoupanca, SaldoInsuficienteException};
 use Alura\Banco\Modelo\{Cpf,Endereco};
 
 require_once 'autoload.php';
@@ -12,6 +12,10 @@ $conta = new ContaPoupanca(
         new Endereco('Curitiba', 'Bacacheri','Estados Unidos','182')));
 
 $conta->depositar(500);
-$conta->sacar(100);
+try{
+    $conta->sacar(1000);
+} catch (SaldoInsuficienteException $e){
+    echo $e->getMessage();
+}
 
 echo $conta->getSaldo();
