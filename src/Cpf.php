@@ -18,4 +18,8 @@ class Cpf
         }
         $this->numero = $numero;
     }
+
+    public function getNumero(){
+        return $this->numero;
+    }
 }
