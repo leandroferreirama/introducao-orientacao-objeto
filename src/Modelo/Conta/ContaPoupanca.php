@@ -5,7 +5,7 @@ use Alura\Banco\Modelo\Conta\Conta;
 
 class ContaPoupanca extends Conta
 {
-    public function sacar(float $valorASacar): void
+    /*public function sacar(float $valorASacar): void
     {
         
         $tarifaSaque = $valorASacar * 0.03;
@@ -16,5 +16,10 @@ class ContaPoupanca extends Conta
             return;
         }
         $this->saldo -= $valorSaque;
+    }*/
+
+    protected function percentualTarifa(): float
+    {
+        return 0.03;
     }
 }

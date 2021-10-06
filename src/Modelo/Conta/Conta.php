@@ -22,7 +22,7 @@ class Conta
 
     public function sacar(float $valorSacar): void
     {
-        $tarifaSaque = $valorSacar * 0.05;
+        $tarifaSaque = $valorSacar * $this->percentualTarifa();
         $valorSaque = $valorSacar + $tarifaSaque;
 
         if($valorSaque > $this->saldo){
@@ -69,5 +69,10 @@ class Conta
     public static function recuperarNumeroDeContas(): int
     {
         return Self::$numeroDeContas;
+    }
+
+    protected function percentualTarifa(): float
+    {
+        return 0.05;
     }
 }
