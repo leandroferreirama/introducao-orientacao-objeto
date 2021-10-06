@@ -2,10 +2,10 @@
 
 namespace Alura\Banco\Modelo\Funcionario;
 
-class Diretor extends Funcionario
+class EditorVideo extends Funcionario
 {
     public function calculaBonificacao(): float
     {
-        return $this->salario * 2;
+        return 600.0;
     }
 }

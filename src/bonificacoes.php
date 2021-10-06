@@ -2,7 +2,7 @@
 
 require_once 'autoload.php';
 
-use Alura\Banco\Modelo\Funcionario\{Desenvolvedor,Gerente,Diretor};
+use Alura\Banco\Modelo\Funcionario\{Desenvolvedor,Gerente,Diretor, EditorVideo};
 use Alura\Banco\Modelo\Cpf;
 use Alura\Banco\Service\ControladorBonificacoes;
 
@@ -23,8 +23,15 @@ $outroFuncionario = new Diretor(
     5000
 );
 
+$editorVideo = new EditorVideo(
+    'Paulo',
+    new Cpf('000.000.000-00'),
+    1500
+);
+
 $controlador = new ControladorBonificacoes();
 $controlador->adicionaBonificacao($umFuncionario);
 $controlador->adicionaBonificacao($umaFuncionaria);
 $controlador->adicionaBonificacao($outroFuncionario);
+$controlador->adicionaBonificacao($editorVideo);
 echo $controlador->getTotal();
